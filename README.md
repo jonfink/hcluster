@@ -5,12 +5,9 @@ _Based on the paper "Performance guarantees for hierarchical clustering" by Sanj
 Straight forward implementation of the Algorithm for points in R^4 with the Euclidian norm.
 
 ## Compiling
-Only depends on STL and CMake (for building)
+Only depends on STL and ROS (for building)
 
-     mkdir build
-     cd build
-     cmake ..
-     make
+    make
 
 ## Usage
 See the file test_hcluster.cc for a usage example.
