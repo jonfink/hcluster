@@ -9,6 +9,11 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/hcluster</url>
 
+  <export>
+    <cpp cflags="-I${prefix}/src" lflags="-Wl,-rpath,${prefix} -L${prefix}/lib -lhcluster"/>
+  </export>
+
+
 </package>
 
 
