@@ -58,13 +58,22 @@ void hcluster_points(list<cPoint_t*> &input_points, map<int, cPoint_t*> &output_
   gLevelsMax.push_back(0);
 
   double t0, tf;
+  list<double> delta_t;
+  int max_samples = 100;
   if(print) {
     printf("\n");
   }
   while(input_points.size() > 0) {
     tf = ts_now();
     if(print) {
-      printf("\r%d points left (%2.2f seconds left)", input_points.size(), (tf-t0)*(double)input_points.size());
+      delta_t.push_back(tf-t0);
+      if(delta_t.size() > max_samples)
+        delta_t.pop_front();
+      double avg_dt = 0;
+      for(list<double>::iterator iter = delta_t.begin(); iter != delta_t.end(); ++iter)
+        avg_dt += *iter;
+      avg_dt /= (double)delta_t.size();
+      printf("\r%d points left (%2.2f seconds left)", input_points.size(), (avg_dt)*(double)input_points.size());
       fflush(stdout);
     }
     t0 = tf;
