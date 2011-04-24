@@ -18,7 +18,7 @@ struct cPoint_t
   list<int> children;      // children of this node
 };
 
-void hcluster_points(list<cPoint_t*> &input_points, map<int, cPoint_t*> &output_points);
+void hcluster_points(list<cPoint_t*> &input_points, map<int, cPoint_t*> &output_points, bool print=false);
 void compute_n_clusters(int cluster_count, map<int, cPoint_t*> &output_points,
                         vector<list<cPoint_t*> > &clusters);
 #endif
