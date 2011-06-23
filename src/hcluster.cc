@@ -160,8 +160,9 @@ void hcluster_points(list<cPoint_t*> &input_points, map<int, cPoint_t*> &output_
       cp->parent_index = min_dist_index;
     }
 
-    // add this point to parent's child list
-    output_points[cp->parent_index]->children.push_back(current_index);
+    // add this point to parent's child list (if the parent exists)
+    if(output_points.find(cp->parent_index) != output_points.end())
+      output_points[cp->parent_index]->children.push_back(current_index);
   }
 
 }
